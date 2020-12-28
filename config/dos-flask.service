@@ -1,0 +1,13 @@
+[Unit]
+Description=A flask server designed to be DOSed
+After=network.target
+
+[Service]
+Environment=PYTHONPATH=/opt/gwc-hacking
+Environment=FLASK_APP=dos.app
+Environment=FLASK_ENV=production
+Type=simple
+ExecStart=/opt/gwc-hacking/venv/bin/flask run --host 0.0.0.0 --port 5001 --without-threads
+
+[Install]
+WantedBy=multi-user.target
