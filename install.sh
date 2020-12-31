@@ -18,7 +18,7 @@ if [ ! -d "${INSTALL_LOCATION}" ]
 then
     sudo mkdir -p /opt
     sudo git clone "${GITHUB_LOCATION}" "${INSTALL_LOCATION}"
-    sudo chown "${USER}:${USER}" "${INSTALL_LOCATION}"
+    sudo chown -R "${USER}:${USER}" "${INSTALL_LOCATION}"
 fi
 if [ ! -d "${INSTALL_LOCATION}/venv" ]
 then
@@ -30,6 +30,7 @@ pip install -r "${INSTALL_LOCATION}/requirements.txt"
 
 # Link in system setup
 sudo rm -f "${NGINX_CONFIG}/default"
+sudo mkdir -p "/var/www/html/gwc"
 sudo ln -sf "${INSTALL_LOCATION}/static" "/var/www/html/gwc/static"
 
 

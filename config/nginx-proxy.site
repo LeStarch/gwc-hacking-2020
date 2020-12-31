@@ -19,36 +19,14 @@
 # Default server configuration
 #
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-    root /var/www/html/gwc/static;
-    index monitor.html;
-    server_name _;
+	server_name _;
 
     # Basic root hosting
-    location / {
-        try_files $uri $uri/ =404;
-    }
-
-    location /status$ {
-        proxy_pass http://localhost:5000/status;
-    }
-    location /restart-dos$ {
-        proxy_pass http://localhost:5000/restart-dos;
-    }
-    location /restart-sql$ {
-        proxy_pass http://localhost:5000/restart-sql;
-    }
-    location /restart-key$ {
-        proxy_pass http://localhost:5000/restart-sql;
-    }
-
-    location /dos$ {
-        proxy_pass http://localhost:5001/dos;
-    }
-    location /dos.html$ {
-        proxy_pass http://localhost:5001/dos;
-    }
+	location / {
+        proxy_pass http://localhost:8081;
+	}
 }
 
