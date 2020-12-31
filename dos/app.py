@@ -14,9 +14,10 @@ app = Flask(__name__)
 
 
 @app.route('/dos')
+@app.route('/dos.html')
 def dos_service():
     time.sleep(RESPONSE_TIME)
-    return send_from_directory(os.path.join(os.path.dirname(__file__), "..", "static"), "service.html")
+    return send_from_directory(os.path.join(os.path.dirname(__file__), "..", "static"), "dos.html")
 
 
 if __name__ == '__main__':

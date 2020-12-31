@@ -33,7 +33,7 @@ sudo rm -f "${NGINX_CONFIG}/default"
 sudo mkdir -p "/var/www/html/gwc"
 sudo ln -sf "${INSTALL_LOCATION}/static" "/var/www/html/gwc/static"
 
-
+sudo service nginx stop
 # Enable all services
 for service in "dos-flask" "monitor"
 do
@@ -42,3 +42,4 @@ do
     sudo systemctl daemon-reload
     sudo service "${service}" restart
 done
+sudo service nginx start

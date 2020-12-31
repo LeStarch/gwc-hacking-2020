@@ -31,23 +31,23 @@ server {
         try_files $uri $uri/ =404;
     }
 
-    location /status$ {
+    location = /status {
         proxy_pass http://localhost:5000/status;
     }
-    location /restart-dos$ {
+    location = /restart-dos {
         proxy_pass http://localhost:5000/restart-dos;
     }
-    location /restart-sql$ {
+    location = /restart-sql {
         proxy_pass http://localhost:5000/restart-sql;
     }
-    location /restart-key$ {
+    location = /restart-key {
         proxy_pass http://localhost:5000/restart-sql;
     }
 
-    location /dos$ {
+    location = /dos {
         proxy_pass http://localhost:5001/dos;
     }
-    location /dos.html$ {
+    location = /dos.html {
         proxy_pass http://localhost:5001/dos;
     }
 }
