@@ -30,8 +30,8 @@ server {
 	}
 }
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen 80;
+	listen [::]:80;
 
 	server_name gwc2021-2.duckdns.org;
 
@@ -41,8 +41,8 @@ server {
 	}
 }
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen 80;
+	listen [::]:80;
 
 	server_name gwc2021-3.duckdns.org;
 
