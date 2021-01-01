@@ -36,7 +36,7 @@ class DOSMon(Monitor):
         current_time = time.time() - self.start
         longest = max(self.longest, current_time)
         if longest < TIMEOUT:
-            return "Longest delay: {}S".format(longest, self.longest), self.get_health(longest)
+            return "Longest delay: {:.4}S".format(longest, self.longest), self.get_health(longest)
         return "Service failed", Health.DEAD
 
     def status(self):
