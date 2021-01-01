@@ -4,7 +4,7 @@ This service will report DOS status as it is monitored. Should the service go do
 down. Fantastic!
 """
 import requests
-
+import time
 from monitor.base import Monitor, Health
 
 
@@ -19,6 +19,7 @@ class DOSMon(Monitor):
         """ constructor """
         super().__init__(app)
         self.longest = 0
+        self.start = None
 
     @staticmethod
     def get_health(time):
@@ -30,19 +31,26 @@ class DOSMon(Monitor):
         else:
             return Health.DIEING
 
+    def current(self):
+        """ Override current for better understanding of timeing """
+        current_time = time.time() - self.start
+        longest = max(self.longest, current_time)
+        if longest < TIMEOUT:
+            return "Longest delay: {}S".format(longest, self.longest), self.get_health(longest)
+        return "Service failed", Health.DEAD
+
     def status(self):
         """ Reports the status of the request """
         try:
             # Prevent querying once it dead
-            if self.longest > TIMEOUT:
-                return "SERVICE FAILURE", Health.DEAD
-            response = requests.get("http://localhost{}".format(LOCATION))
-            time = response.elapsed.total_seconds()
-            if time > self.longest:
-                self.longest = time
-            return "{}S - {}S".format(time, self.longest), self.get_health(time)
-        except requests.exceptions.Timeout:
-            return "SERVICE FAILURE", Health.DEAD
+            self.start = time.time()
+            response = requests.get("http://localhost{}".format(LOCATION), timeout=TIMEOUT)
+            time_real = response.elapsed.total_seconds()
+            if time_real > self.longest:
+                self.longest = time_real
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+            self.longest = TIMEOUT
+        return "Unused", Health.NONE
 
     def restart(self):
         self.longest = 0

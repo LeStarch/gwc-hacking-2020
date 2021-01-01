@@ -9,7 +9,7 @@ import time
 from flask import Flask, send_from_directory
 
 
-RESPONSE_TIME=0.100
+RESPONSE_TIME=0.200
 app = Flask(__name__)
 
 
