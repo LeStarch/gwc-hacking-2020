@@ -19,10 +19,10 @@
 # Default server configuration
 #
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+	listen 80;
+	listen [::]:80;
 
-	server_name _;
+	server_name gwc-2021-1.duckdns.org;
 
     # Basic root hosting
 	location / {
