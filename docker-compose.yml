@@ -1,0 +1,13 @@
+services:
+  gwc1:
+    build: .
+    ports:
+      - "8081:80"
+  gwc2:
+    build: .
+    ports:
+      - "8082:80"
+  gwc3:
+    build: .
+    ports:
+      - "8083:80"
