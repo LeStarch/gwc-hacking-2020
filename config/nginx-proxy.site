@@ -29,4 +29,25 @@ server {
         proxy_pass http://localhost:8081;
 	}
 }
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
+	server_name gwc2021-2.duckdns.org;
+
+    # Basic root hosting
+	location / {
+        proxy_pass http://localhost:8082;
+	}
+}
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	server_name gwc2021-3.duckdns.org;
+
+    # Basic root hosting
+	location / {
+        proxy_pass http://localhost:8083;
+	}
+}
