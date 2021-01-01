@@ -33,7 +33,7 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name gwc2021-2.duckdns.org;
+	server_name gwc-2021-2.duckdns.org;
 
     # Basic root hosting
 	location / {
@@ -44,7 +44,7 @@ server {
 	listen 80;
 	listen [::]:80;
 
-	server_name gwc2021-3.duckdns.org;
+	server_name gwc-2021-3.duckdns.org;
 
     # Basic root hosting
 	location / {
