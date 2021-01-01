@@ -17,4 +17,5 @@ RUN pip install -r /opt/gwc-hacking/requirements.txt && \
     rm -r ~/.cache/pip && \
     ln -sf "/opt/gwc-hacking/static" "/var/www/html/gwc/static" && \
     ln -sf "/opt/gwc-hacking/config/nginx.site" "/etc/nginx/sites-enabled/gwc"
+WORKDIR "/opt/gwc-hacking"
 ENTRYPOINT ["/opt/gwc-hacking/run.sh"]
