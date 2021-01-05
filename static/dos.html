@@ -3,14 +3,46 @@
     <head>
         <meta charset="UTF-8">
         <title>DOS</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
         <h1>Denial of Service</h1>
         <p>Denial of Service (DOS) and Distributed Denial of Service (DDOS) is a hacking technique used to take down
-        services uses use on the internet. It is done by accessing a service (i.e. a webpage) over and over again,
-        flooding it with requests. If enough requests are sent, the service fail.</p>
+        services uses use on the internet. It is done by flooding a webpage or webservice with so many requests that it
+        fails. In doing so the service is denied to all users including real users.</p>
+
+        <p>In this exercise, your goal is to crash this very service by slowing down requests to the point that the
+        webpage cannot respond within 30 seconds. The key to denial of service is that your computer must spend less
+        time on a request than the server processing it.</p>
+
+        <p>Can your team figure out how to crash this service?</p>
 
         <p><em>Goal:</em> Crash this service (this page right here)!</p>
         <p><a target="_blank" rel="noopener noreferrer" href="/">Monitor Your Progress Here</a></p>
+
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Hints
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    <ol>
+                        <li>This activity will need you to work together</li>
+                        <li>Your browser will "cache" or save web responses, preventing repeated loading.
+                            Can you get around the browser cache?</li>
+                        <li>This activity is entirely doable from your web browsers.</li>
+                        <li>Can you figure out how to ignore a response once the request has been sent?</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

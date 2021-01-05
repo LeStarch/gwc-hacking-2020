@@ -40,24 +40,24 @@
         <h3>Example</h3>
         <p>
         A standard SQL query might look like:
-        <pre><code>SELECT password FROM USERPASS WHERE user=('michaels');</code></pre>
+        <pre><code>SELECT password FROM USERPASS WHERE user='michaels';</code></pre>
 
         Here we are asking the database for the password associated with user 'michaels'. The query follows the query
         syntax linked above, and critically each statement ends with a ';'. Each ';' terminated statement is executed as
         a query.
 
         Likely, the code substitutes the username from a login form so if we can supply a bad username, we can try and
-        break-out of thr query. Consider the username <em>');</em>. It will end the first query and leave garbage at the end
+        break-out of thr query. Consider the username <em>';</em>. It will end the first query and leave garbage at the end
         of the line.
 
-        <pre><code>SELECT password FROM USERPASS WHERE user=('');');</code></pre>
+        <pre><code>SELECT password FROM USERPASS WHERE user='';';</code></pre>
 
-        We can remove the garbage using a -- "line comment" (like # comments in python) using the username <em>');--</em>.
+        We can remove the garbage using a -- "line comment" (like # comments in python) using the username <em>';--</em>.
         Notice, now we have a space between the first ; in the username and the -- ending the username where we can write
-        more queries. Form example we could use the username <em>'); SELECT * FROM USERS; --</em> to select all data from
-        the USERS table. That will create the quey below.
+        more SQL queries. Form example we could use the username <em>'; SELECT * FROM USERS; --</em> to select all data from
+        the USERS table. That will create the full query below.
 
-        <pre><code>SELECT password FROM USERPASS WHERE user=(''); SELECT * FROM USERS; --');</code></pre>
+        <pre><code>SELECT password FROM USERPASS WHERE user=''; SELECT * FROM USERS; --';</code></pre>
 
         Using this knowledge, you should be able to attack our service below.
         </p>
@@ -72,14 +72,21 @@
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
+                <p>
                 The table name of USERPASS above is an example. Try to inject the command below in order to see what
                 tables exist in our database. You must wrap this query as shown above.
+                </p>
+                <pre><code>SELECT name FROM sqlite_master;</code></pre>
 
-                <pre><code>SELECT * FROM sqlite_master;</code></pre>
-
-                Injected using "user" of: <em>');SELECT * FROM sqlite_master; --</em>
-
-                Real the specification on the following commands "INSERT", "DROP", and "SELECT".
+                Injected using "user" of: <em>';SELECT name FROM sqlite_master; --</em> will list table names.
+                <p>
+                Read the specification on the following commands: "INSERT", "DROP", and "SELECT". Inject various
+                commands into the database.
+                </p>
+                <p>
+                We provide full errors to help you understand what is happening on the backend. See the Hints box below
+                the login.
+                </p>
                 </div>
             </div>
         </div>

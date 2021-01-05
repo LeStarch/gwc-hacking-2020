@@ -20,7 +20,8 @@
     <div class="container">
         <h1>Key Loggers</h1>
         <p>Key loggers are programs designed to log all the key strokes typed by a computer user. They can record all the
-        things typed into the keyboard and send them to an nefarious user.</p>
+        things typed into the keyboard and send them to an nefarious user or store them for later retrieval. Once the data
+        is captured, it must be analysed to determine if there is any useful content.</p>
 
         <p>
         <em>Goal:</em> Steal the usernames and passwords from the computer user.
@@ -35,6 +36,27 @@
         <p>
         <a target="_blank" rel="noopener noreferrer" href="/">Monitor Your Progress Here</a>
         </p>
+                        <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                                Hints
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <ol>
+                                <li>What is the most common patterns we type?</li>
+                                <li>Do we always tpye correctly?</li>
+                                <li>Users change windows and the keylogger will keep logging.</li>
+                                <li>Can you use social engineering to help?</li>
+                                <li>Some logins many not use usernames.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
         <div class="row">
             <div class="col col-4">
                 <h1>Login to Services</h1>
@@ -56,22 +78,6 @@
                     <button onclick="onsub('/key');" class="btn btn-success">Login</button>
                 </div>
                 <div id="messages"></div>
-                <div class="card" hidden>
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                                Hints
-                            </button>
-                        </h2>
-                    </div>
-
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            Keylogger hints:
-                            <pre><code id="hints"></code></pre>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col col-8 code">
                 <pre><code id="keylog"></code></pre>
